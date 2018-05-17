@@ -185,7 +185,7 @@ namespace SpaceCore
             {
                 return Game1.temporaryContent.Load<Dictionary<string, string>>("Data\\Festivals\\" + Game1.currentSeason + (object)Game1.dayOfMonth)["conditions"].Split('/')[0];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
