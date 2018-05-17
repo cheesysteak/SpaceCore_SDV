@@ -23,7 +23,7 @@ namespace SpaceCore.Overrides
             }
             if (hoeDirt.fertilizer == 370 && Game1.random.NextDouble() < 0.33 || hoeDirt.fertilizer == 371 && Game1.random.NextDouble() < 0.66)
                 return;
-            hoeDirt.state = 0;
+            hoeDirt.state.Set(0);
         }
 
         // TODO: Make this do IL hooking instead of pre + no execute original

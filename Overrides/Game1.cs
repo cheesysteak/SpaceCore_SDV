@@ -85,7 +85,7 @@ namespace SpaceCore.Overrides
                         }
                         if (Game1.currentSeason.Equals("spring") || (seasonalLoc != null && seasonalLoc.Season == "spring"))
                         {
-                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in (Dictionary<Vector2, SObject>)location.Objects)
+                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in ((OverlaidDictionary<Vector2, SObject>)location.Objects).Pairs)
                             {
                                 if ((keyValuePair.Value.Name.Contains("Stump") || keyValuePair.Value.Name.Contains("Boulder") || (keyValuePair.Value.Name.Equals("Stick") || keyValuePair.Value.Name.Equals("Stone"))) && (keyValuePair.Value.ParentSheetIndex >= 378 && keyValuePair.Value.ParentSheetIndex <= 391))
                                     keyValuePair.Value.ParentSheetIndex -= 376;
@@ -94,7 +94,7 @@ namespace SpaceCore.Overrides
                         }
                         else if (Game1.currentSeason.Equals("summer") || (seasonalLoc != null && seasonalLoc.Season == "summer"))
                         {
-                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in (Dictionary<Vector2, SObject>)location.Objects)
+                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in ((OverlaidDictionary<Vector2, SObject>)location.Objects).Pairs)
                             {
                                 if (keyValuePair.Value.Name.Contains("Weed"))
                                 {
@@ -110,7 +110,7 @@ namespace SpaceCore.Overrides
                         }
                         else if (Game1.currentSeason.Equals("fall") || (seasonalLoc != null && seasonalLoc.Season == "fall"))
                         {
-                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in (Dictionary<Vector2, SObject>)location.Objects)
+                            foreach (KeyValuePair<Vector2, SObject> keyValuePair in ((OverlaidDictionary<Vector2, SObject>)location.Objects).Pairs)
                             {
                                 if (keyValuePair.Value.Name.Contains("Weed"))
                                 {
@@ -126,7 +126,7 @@ namespace SpaceCore.Overrides
                         }
                         else if (Game1.currentSeason.Equals("winter") || (seasonalLoc != null && seasonalLoc.Season == "winter"))
                         {
-                            for (int index = location.Objects.Count - 1; index >= 0; --index)
+                            for (int index = location.Objects.Count() - 1; index >= 0; --index)
                             {
                                 SObject @object = location.Objects[location.Objects.Keys.ElementAt<Vector2>(index)];
                                 if (@object.Name.Contains("Weed"))

@@ -128,13 +128,16 @@ namespace SpaceCore
             if (loc is MineShaft)
             {
                 Log.trace("Slept in a mine.");
-                var pos = (loc as MineShaft).enterMine(Game1.player, data.MineLevel, false);
+                #warning dunno how to fix this yet
+                /* var pos = (loc as MineShaft).mine(Game1.player, data.MineLevel, false);
                 data.X = pos.X * Game1.tileSize;
                 data.Y = pos.Y * Game1.tileSize;
+                */
             }
 
             Game1.player.currentLocation = Game1.currentLocation = loc;
-            Game1.player.position = new Vector2(data.X, data.Y);
+            Game1.player.position.X = data.X;
+            Game1.player.position.Y = data.Y;
         }
 
         private void onSave(object sender, EventArgs args)
@@ -151,13 +154,14 @@ namespace SpaceCore
 
                 var house = Game1.getLocationFromName("FarmHouse") as FarmHouse;
                 Game1.player.currentLocation = Game1.currentLocation = house;
-                Game1.player.position = new Vector2(house.getBedSpot().X * Game1.tileSize, house.getBedSpot().Y * Game1.tileSize);
+                Game1.player.position.X = house.getBedSpot().X * Game1.tileSize;
+                Game1.player.position.Y = house.getBedSpot().Y * Game1.tileSize;
                 Sleep.SaveLocation = false;
                 return;
             }
 
             var data = new Sleep.Data();
-            data.Location = Game1.currentLocation.name;
+            data.Location = Game1.currentLocation.Name;
             data.X = Game1.player.position.X;
             data.Y = Game1.player.position.Y;
 

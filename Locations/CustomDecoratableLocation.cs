@@ -12,10 +12,7 @@ namespace SpaceCore.Locations
         public new abstract List<Microsoft.Xna.Framework.Rectangle> getWalls();
         public new abstract List<Microsoft.Xna.Framework.Rectangle> getFloors();
 
-        public CustomDecoratableLocation() : base() { }
-        public CustomDecoratableLocation(xTile.Map m, string name) : base(m, name) { }
-
-        public override void setWallpaper(int which, int whichRoom = -1, bool persist = false)
+        public new void setWallpaper(int which, int whichRoom = -1, bool persist = false)
         {
             List<Microsoft.Xna.Framework.Rectangle> walls = getWalls();
             if (persist)
@@ -67,7 +64,7 @@ namespace SpaceCore.Locations
             }
         }
 
-        public override void setFloor(int which, int whichRoom = -1, bool persist = false)
+        public new void setFloor(int which, int whichRoom = -1, bool persist = false)
         {
             List<Microsoft.Xna.Framework.Rectangle> floors = getFloors();
             if (persist)
